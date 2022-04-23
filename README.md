@@ -9,13 +9,13 @@ Windows GUI for MPRemote Compatible Devices
 </p>
 
 <p align="center">
-  <img src="https://github.com/joewez/PyboardFileManager/blob/main/main.png" alt="Screenshot"/>
+  <img src="https://github.com/joewez/MPRemoteEditor/blob/main/main.png" alt="Screenshot"/>
 </p>
 <p align="center">
-  <img src="https://github.com/joewez/PyboardFileManager/blob/main/repl.png" alt="REPL Screenshot"/>
+  <img src="https://github.com/joewez/MPRemoteEditor/blob/main/repl.png" alt="REPL Screenshot"/>
 </p>
 <p align="center">
-  <img src="https://github.com/joewez/PyboardFileManager/blob/main/find.png" alt="RP2 REPL Screenshot"/>
+  <img src="https://github.com/joewez/MPRemoteEditor/blob/main/find.png" alt="Find Screenshot"/>
 </p>
 
 A simple GUI wrapper that executes the <b>MPRemote</b> application (https://docs.micropython.org/en/latest/reference/mpremote.html) command to manipulate the files on an device running MicroPython.  The device must support raw REPL over the serial port in order for this application to function properly.
