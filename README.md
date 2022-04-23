@@ -18,17 +18,13 @@ Windows GUI for MPRemote Compatible Devices
   <img src="https://github.com/joewez/MPRemoteEditor/blob/main/find.png" alt="Find Screenshot"/>
 </p>
 
-A simple GUI wrapper that executes the <b>MPRemote</b> application (https://docs.micropython.org/en/latest/reference/mpremote.html) command to manipulate the files on an device running MicroPython.  The device must support raw REPL over the serial port in order for this application to function properly.
+A simple GUI wrapper that executes the <b>MPRemote</b> application (https://github.com/micropython/micropython/tree/master/tools/mpremote) command to manipulate the files on an device running MicroPython.  The device must support raw REPL over the serial port in order for this application to function properly.
 
 It was written in C# in Visual Studio 2019, so you will need VS Express or better to compile it.  It uses the Scintilla editor control (https://github.com/jacobslusser/ScintillaNET) which allows for MicroPython syntax highlighting.
 
 As a development tool, I wrote the utility to mainly just edit the files directly off of the device.  I have also embedded a simple terminal emulator to send commands to the serial REPL.  The program works better though when paired with an external terminal such as puTTY or TeraTerm.  See the configuration notes below on how to set this up.
-
-A precompiled binary is available for download here:
-
-  https://wezensky.no-ip.org/shared/mpre.zip
   
-Just unzip to a convenient location and run the MPRemoteEditor.exe. 
+To use, just unzip to a convenient location and run the MPRemoteEditor.exe. 
 
 <b>DEPENDENCIES:</b> 
 
