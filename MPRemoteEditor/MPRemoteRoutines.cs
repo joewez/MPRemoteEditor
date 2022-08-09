@@ -108,7 +108,7 @@ namespace MPRemoteEditor
         {
             SelectComForm s = new SelectComForm();
             ((ComboBox)s.Controls["cboPorts"]).Items.Clear();
-            foreach (string port in ports.OrderBy(g => Convert.ToInt32(g.Substring(3))).ToArray())
+            foreach (string port in ports.OrderBy(keySelector: g => Convert.ToInt32(g.Substring(3))).ToArray())
                 ((ComboBox)s.Controls["cboPorts"]).Items.Add(port);
             if (((ComboBox)s.Controls["cboPorts"]).Items.Count == 1)
                 ((ComboBox)s.Controls["cboPorts"]).SelectedIndex = 0;
@@ -186,8 +186,7 @@ namespace MPRemoteEditor
             {
                 LogError(ex);
             }
-
-            return dir;
+           return dir;
         }
 
         private void Execute(string command)
@@ -235,11 +234,6 @@ namespace MPRemoteEditor
             Execute("rmdir " + DirectoryToDelete);
         }
 
-        public void SoftReset()
-        {
-            Execute("soft-reset");
-        }
-
         public void MoveFile(string SrcFile, string DestFile)
         {
             string TempFile = Path.GetTempFileName();
@@ -271,71 +265,6 @@ namespace MPRemoteEditor
             output = output.Replace("Plus any modules on the filesystem", "");
             return output;
         }
-
-        public string ExecuteOutput(string command)
-        {
-            Process p = new Process();
-            p.StartInfo.UseShellExecute = false;
-            p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            p.StartInfo.CreateNoWindow = true;
-            p.StartInfo.RedirectStandardOutput = true;
-            p.StartInfo.RedirectStandardError = true;
-            p.StartInfo.WorkingDirectory = Application.StartupPath;
-            p.StartInfo.FileName = _mpremote;
-            p.StartInfo.Arguments = _command_prefix + command;
-            p.Start();
-            string errors = p.StandardError.ReadToEnd();
-            string output = p.StandardOutput.ReadToEnd();
-            p.WaitForExit();
-
-            return output;
-        }
-
-        public List<string> GetDirTest(string path, string LB, string RB)
-        {
-            List<string> dir = new List<string>();
-
-            try
-            {
-                string lscmd = "ls";
-                if (path != "")
-                    lscmd = "ls " + ((char)34).ToString() + path + ((char)34).ToString();
-                string output = ExecuteOutput(lscmd);
-
-                string[] entries = output.Replace("\r\n", "|").Split('|');
-
-                List<string> folders = new List<string>();
-                List<string> files = new List<string>();
-
-                foreach (string entry in entries)
-                {
-                    if (entry != null && entry != "" && !entry.StartsWith("ls"))
-                    {
-                        string nugget = entry.Trim();
-                        if (nugget.EndsWith("/"))
-                        {
-                            nugget = nugget.Substring(0, nugget.Length - 1);
-                            folders.Add(nugget.Substring(nugget.IndexOf(' ') + 1));
-                        }
-                        else
-                            files.Add(nugget.Substring(nugget.IndexOf(' ') + 1));
-                    }
-                }
-
-                foreach (string folder in folders.OrderBy(f => f).ToList())
-                    dir.Add(LB + folder + RB);
-                foreach (string file in files.OrderBy(f => f).ToList())
-                    dir.Add(file);
-
-            }
-            catch (Exception ex)
-            {
-                LogError(ex);
-            }
-
-            return dir;
-        }
-
 
     }
 }

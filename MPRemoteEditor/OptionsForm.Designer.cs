@@ -34,16 +34,19 @@ namespace MPRemoteEditor
             this.tabOptions = new System.Windows.Forms.TabControl();
             this.tabComm = new System.Windows.Forms.TabPage();
             this.tabREPL = new System.Windows.Forms.TabPage();
-            this.tabMiscellaneous = new System.Windows.Forms.TabPage();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtRunPutty = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.rdoPutty = new System.Windows.Forms.RadioButton();
+            this.tabMiscellaneous = new System.Windows.Forms.TabPage();
+            this.findfilePutty = new System.Windows.Forms.OpenFileDialog();
+            this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabOptions.SuspendLayout();
             this.tabREPL.SuspendLayout();
             this.SuspendLayout();
@@ -59,7 +62,7 @@ namespace MPRemoteEditor
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(204, 220);
+            this.btnCancel.Location = new System.Drawing.Point(194, 220);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 1;
@@ -90,10 +93,11 @@ namespace MPRemoteEditor
             // 
             // tabREPL
             // 
+            this.tabREPL.Controls.Add(this.button1);
             this.tabREPL.Controls.Add(this.radioButton2);
             this.tabREPL.Controls.Add(this.textBox4);
             this.tabREPL.Controls.Add(this.label3);
-            this.tabREPL.Controls.Add(this.textBox2);
+            this.tabREPL.Controls.Add(this.txtRunPutty);
             this.tabREPL.Controls.Add(this.label2);
             this.tabREPL.Controls.Add(this.textBox1);
             this.tabREPL.Controls.Add(this.label1);
@@ -107,6 +111,90 @@ namespace MPRemoteEditor
             this.tabREPL.Text = "REPL";
             this.tabREPL.UseVisualStyleBackColor = true;
             // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton2.Location = new System.Drawing.Point(17, 148);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(152, 17);
+            this.radioButton2.TabIndex = 17;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Internal (Experimental)";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(118, 117);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(224, 20);
+            this.textBox4.TabIndex = 16;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(35, 120);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(80, 13);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Run Command:";
+            // 
+            // txtRunPutty
+            // 
+            this.txtRunPutty.Location = new System.Drawing.Point(118, 38);
+            this.txtRunPutty.Name = "txtRunPutty";
+            this.txtRunPutty.Size = new System.Drawing.Size(224, 20);
+            this.txtRunPutty.TabIndex = 14;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(37, 41);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(80, 13);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Run Command:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(118, 66);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(224, 20);
+            this.textBox1.TabIndex = 12;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(37, 69);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 13);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Session Name:";
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton1.Location = new System.Drawing.Point(17, 93);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(79, 17);
+            this.radioButton1.TabIndex = 10;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "TeraTerm";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // rdoPutty
+            // 
+            this.rdoPutty.AutoSize = true;
+            this.rdoPutty.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoPutty.Location = new System.Drawing.Point(17, 16);
+            this.rdoPutty.Name = "rdoPutty";
+            this.rdoPutty.Size = new System.Drawing.Size(62, 17);
+            this.rdoPutty.TabIndex = 9;
+            this.rdoPutty.TabStop = true;
+            this.rdoPutty.Text = "PuTTy";
+            this.rdoPutty.UseVisualStyleBackColor = true;
+            // 
             // tabMiscellaneous
             // 
             this.tabMiscellaneous.Location = new System.Drawing.Point(4, 22);
@@ -117,92 +205,28 @@ namespace MPRemoteEditor
             this.tabMiscellaneous.Text = "Miscellaneous";
             this.tabMiscellaneous.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // findfilePutty
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(6, 137);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(129, 17);
-            this.radioButton2.TabIndex = 17;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Internal (Experimental)";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.findfilePutty.Title = "Identify command file that invokes PuTTy";
             // 
-            // textBox4
+            // openFileDialog2
             // 
-            this.textBox4.Location = new System.Drawing.Point(111, 104);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(224, 20);
-            this.textBox4.TabIndex = 16;
+            this.openFileDialog2.FileName = "openFileDialog2";
             // 
-            // label3
+            // button1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 107);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 13);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "EXE Target:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(111, 23);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(224, 20);
-            this.textBox2.TabIndex = 14;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 13);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "EXE Target:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(111, 51);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(224, 20);
-            this.textBox1.TabIndex = 12;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 57);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 13);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Session Name:";
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 83);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(71, 17);
-            this.radioButton1.TabIndex = 10;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "TeraTerm";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // rdoPutty
-            // 
-            this.rdoPutty.AutoSize = true;
-            this.rdoPutty.Location = new System.Drawing.Point(6, 6);
-            this.rdoPutty.Name = "rdoPutty";
-            this.rdoPutty.Size = new System.Drawing.Size(57, 17);
-            this.rdoPutty.TabIndex = 9;
-            this.rdoPutty.TabStop = true;
-            this.rdoPutty.Text = "PuTTy";
-            this.rdoPutty.UseVisualStyleBackColor = true;
+            this.button1.Location = new System.Drawing.Point(344, 38);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(25, 21);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // OptionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(383, 257);
+            this.ClientSize = new System.Drawing.Size(383, 251);
             this.Controls.Add(this.tabOptions);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
@@ -228,12 +252,15 @@ namespace MPRemoteEditor
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtRunPutty;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton rdoPutty;
         private System.Windows.Forms.TabPage tabMiscellaneous;
+        private System.Windows.Forms.OpenFileDialog findfilePutty;
+        private System.Windows.Forms.OpenFileDialog openFileDialog2;
+        private System.Windows.Forms.Button button1;
     }
 }
