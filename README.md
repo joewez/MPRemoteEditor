@@ -29,7 +29,7 @@ To use, just unzip to a convenient location and run the MPRemoteEditor.exe.
 <b>DEPENDENCIES:</b> 
 
 - Python 3.X
-- MPRemote  (pip3 install mpremote)
+- MPRemote  (<i>pip3 install mpremote</i>)
 - .Net Framework (maybe)
 
 <b>HOW TO START:</b>
@@ -104,6 +104,8 @@ All the features are pretty self-explanatory, but here is just a short descripti
 
 <b>CAVEATS:</b>
 
+- Spaces in filenames and directories is NOT supported
+- Be sure you have the latest version of <b>MPRemote</b>. Just execute <i>pip install mpremote --upgrade</i>
 - Although it should work with any device that <b>MPRemote</b> works with, it has only been tested with...
     - Pyboard v1.1
     - TPYBoard
